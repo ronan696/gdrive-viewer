@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head><title>Z GDrive Viewer</title>
+<style>
+body {
+overflow-x : hidden;
+height : auto;
+background: #f0bc1f;
+background: -moz-linear-gradient(left, #f0bc1f 0%, #e88484 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, #f0bc1f), color-stop(100%, #e88484));
+background: -webkit-linear-gradient(left, #f0bc1f 0%, #e88484 100%);
+background: -o-linear-gradient(left, #f0bc1f 0%, #e88484 100%);
+background: -ms-linear-gradient(left, #f0bc1f 0%, #e88484 100%);
+background: linear-gradient(to right, #f0bc1f 0%, #e88484 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0bc1f', endColorstr='#e88484', GradientType=1 );
+font-family: "Open Sans", Helvetica;
+}
+
+p {
+  text-align: center;
+}
+
+label {
+  display: block;
+  letter-spacing: 4px;
+  padding-top: 30px;
+  text-align: center;
+}
+label .label-text {
+  color: red;
+  cursor: text;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  -moz-transform: translateY(-34px);
+  -ms-transform: translateY(-34px);
+  -webkit-transform: translateY(-34px);
+  transform: translateY(-34px);
+  transition: all 0.3s;
+}
+label input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid red;
+  color: white;
+  font-size: 36px;
+  letter-spacing: -1px;
+  outline: 0;
+  padding: 5px 20px;
+  text-align: center;
+  transition: all 0.3s;
+  width: 200px;
+}
+label input:focus {
+  max-width: 100%;
+  width: 400px;
+}
+label input:focus + .label-text {
+  color: red;
+  font-size: 15px;
+  -moz-transform: translateY(-74px);
+  -ms-transform: translateY(-74px);
+  -webkit-transform: translateY(-74px);
+  transform: translateY(-74px);
+}
+label input:valid + .label-text {
+  font-size: 15px;
+  -moz-transform: translateY(-74px);
+  -ms-transform: translateY(-74px);
+  -webkit-transform: translateY(-74px);
+  transform: translateY(-74px);
+}
+
+button {
+  margin:auto;
+  display:block;
+  background-color: transparent;
+  border: 2px solid red;
+  border-radius: 27px;
+  color: red;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  transition: all 200ms;
+}
+button:hover, button:focus {
+  background-color: red;
+  color: #ffff80;
+  outline: 0;
+}
+footer
+{
+	text-align: center;
+	position : fixed;
+	width:100%;
+	bottom: 5px;
+}
+.a
+{
+width : 100%;
+}
+</style></head>
+<body>
+<a href="https://github.com/ronan696"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+  <br/>
+  <label>
+    <input type="text" id="ID" required/>
+    <div class="label-text">Folder ID</div>
+  </label>
+  <a href="img/folder_id.jpg" target="_blank"><p>What is Folder ID?</p></a>
+  <button onclick="myFunction()">Submit</button>
+<p id="info"></p>
+<footer>Z GDrive Viewer - Ronan D'Souza</footer>
+<script>
+function myFunction() {
+	var x = document.getElementById("ID").value;
+	if(x)
+	{ 
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4)
+				if(xhttp.status == 200)
+					{
+						if(xhttp.responseText.search('true') != -1)
+							window.location = "z_gdrive_viewer.php?ID="+x;
+						else 
+							document.getElementById("info").innerHTML = "<br><strong>Invalid ID</strong> or <strong>Sharing not Enabled</strong><br><a href='img/sharing.jpg' target='_blank'>How to turn on sharing?</a>";
+					}
+			}
+		xhttp.open("GET", "session_start.php?ID=" + x, true);
+		xhttp.send();
+	}
+	else
+	document.getElementById("info").innerHTML = "<br><strong>Please Enter ID</strong>";
+}
+</script>
+
+</body>
+</html>
