@@ -16,4 +16,4 @@ HTML iframe can be used to embed, as shown below.
 ```
 
 -----
-This Project is liscensed under MIT Liscense.
+This Project is liscensed under MIT License.
