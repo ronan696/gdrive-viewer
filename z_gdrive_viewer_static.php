@@ -3,7 +3,6 @@
 <head>
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <?php
-	session_start();
 	include_once 'simple_html_dom.php';
 	function zfunc($ID)
 	{
