@@ -74,7 +74,7 @@
 			}
 			$arrlength = count($names);
 			//Pad the array with URL of folder image
-			$i = array_pad($imgurls,-$arrlength,"/img/folder.png");
+			$i = array_pad($imgurls,-$arrlength,"img/folder.png");
 		
 			for($x = 0; $x < $arrlength; $x++) 
 			{
