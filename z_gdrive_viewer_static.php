@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <?php
 	include_once 'simple_html_dom.php';
 	function zfunc($ID)
