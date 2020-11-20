@@ -10,6 +10,7 @@ Z GDrive Viewer requires PHP 5+.
 <p align="left">
   <img src="https://github.com/ronan696/gdrive-viewer/blob/master/img/folder_id.jpg?raw=true" />
 </p>
+
  - Ensure that the folder is __Shared Publicly__([:question:](https://s32.postimg.org/4hwdggz39/sharing.gif))
 <p align="left">
   <img src="https://github.com/ronan696/gdrive-viewer/blob/master/img/sharing.gif?raw=true" />
